@@ -15,11 +15,14 @@ public class KitPvPMapManager extends GameMapManager<KitPvPGame, SlimeMap, Slime
 
     public KitPvPMapManager(KitPvPGame game) {
         super(game, new SlimeWorldLoader());
-        this.waitingMap = new SlimeGameMap("waiting", "waitingroom-template");
+        // getFormattedTypeMapName gonna add the name and the id of the game before the name you chosen like 'mygame-A0Fljf-waiting'
+        this.waitingMap = new SlimeGameMap(getFormattedTypeMapName("waiting"), "waitingroom-template");
     }
 
     @Override
     public void setup() {
+        addMap(waitingMap);
+
         mapLoader.load(waitingMap).whenComplete((slimeMap, throwable) -> {
             slimeMap.setSpawn(0, 100, 0, 180f, 0f);
 
