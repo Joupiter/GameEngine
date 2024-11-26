@@ -1,0 +1,5 @@
+name: JGameEngine
+version: 1.0.0
+main: fr.joupi.games.core.GameEngine
+author: Joupi
+softdepend: [SlimeWorldManager]

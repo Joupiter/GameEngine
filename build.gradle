@@ -1,0 +1,104 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.gradleup.shadow:shadow-gradle-plugin:8.3.0'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+    id 'com.gradleup.shadow' version '8.3.0'
+}
+
+tasks.register('publishAll') {
+    dependsOn ':api:publishToMavenLocal', ':plugin:publishToMavenLocal'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+    apply plugin: 'com.gradleup.shadow'
+
+    group 'fr.joupi.games.engine'
+    version '1.0-SNAPSHOT'
+    compileJava.options.encoding 'UTF-8'
+
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        }
+        maven {
+            url 'https://repo.glaremasters.me/repository/concuncan/'
+        }
+    }
+
+    dependencies {
+        compileOnly 'org.slf4j:slf4j-api:2.0.13'
+        compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+        compileOnly 'org.projectlombok:lombok:1.18.34'
+        compileOnly 'com.grinderwolf:slimeworldmanager-plugin:2.2.1'
+        compileOnly 'com.github.ben-manes.caffeine:caffeine:3.1.8'
+
+        annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    }
+
+    publishing {
+        publications {
+            if (project.name == 'api') {
+                mavenJava(MavenPublication) {
+                    from components.java
+                    groupId 'fr.joupi.games.engine'
+                    artifactId 'api'
+                    version '1.0.0'
+                }
+            }
+
+            if (project.name == 'plugin') {
+                shadow(MavenPublication) {
+                    groupId 'fr.joupi.games.engine'
+                    artifactId 'plugin'
+                    version '1.0.0'
+
+                    artifact(tasks.shadowJar) {
+                        classifier ''
+                        extension 'jar'
+                    }
+
+                    tasks.withType(Jar) {
+                        if (name == 'jar') {
+                            enabled = false as Publication
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    compileJava {
+        sourceCompatibility = JavaVersion.VERSION_21
+    }
+
+    tasks.withType(Test).tap {
+        configureEach {
+            systemProperty "file.encoding", "UTF-8"
+        }
+    }
+}

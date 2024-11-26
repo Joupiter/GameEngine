@@ -1,0 +1,15 @@
+dependencies {
+    implementation project(path: ':api', configuration: 'shadow')
+    implementation 'com.github.ben-manes.caffeine:caffeine:3.1.8'
+}
+
+shadowJar {
+    archiveBaseName.set('HeriaGameEngine')
+    archiveClassifier.set('')
+
+    dependencies {
+        include(dependency(':api'))
+        include(dependency('com.github.ben-manes.caffeine:caffeine:3.1.8'))
+    }
+
+}
