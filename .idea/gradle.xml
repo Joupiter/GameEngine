@@ -10,6 +10,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/api" />
+            <option value="$PROJECT_DIR$/examples" />
+            <option value="$PROJECT_DIR$/examples/ffa" />
+            <option value="$PROJECT_DIR$/examples/simple" />
             <option value="$PROJECT_DIR$/plugin" />
           </set>
         </option>

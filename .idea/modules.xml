@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/api/GameEnginee.api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/api/GameEnginee.api.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/examples/ffa/GameEnginee.examples.ffa.main.iml" filepath="$PROJECT_DIR$/.idea/modules/examples/ffa/GameEnginee.examples.ffa.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/examples/GameEnginee.examples.main.iml" filepath="$PROJECT_DIR$/.idea/modules/examples/GameEnginee.examples.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/examples/simple/GameEnginee.examples.simple.main.iml" filepath="$PROJECT_DIR$/.idea/modules/examples/simple/GameEnginee.examples.simple.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/plugin/GameEnginee.plugin.main.iml" filepath="$PROJECT_DIR$/.idea/modules/plugin/GameEnginee.plugin.main.iml" />
     </modules>
   </component>

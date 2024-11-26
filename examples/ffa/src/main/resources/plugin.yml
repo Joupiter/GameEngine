@@ -1,0 +1,4 @@
+name: KitPVP
+version: 1.0
+main: fr.joupi.games.ffa.KitPvPAddon
+depend: [JGameEngine]

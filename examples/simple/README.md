@@ -1,0 +1,1 @@
+An simple example for simple game without teams system with the strict minimum

@@ -4,7 +4,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveBaseName.set('HeriaGameEngine')
+    archiveBaseName.set('JGameEngine')
     archiveClassifier.set('')
 
     dependencies {
