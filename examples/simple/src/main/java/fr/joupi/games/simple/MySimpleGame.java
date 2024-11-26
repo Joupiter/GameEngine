@@ -14,8 +14,8 @@ public class MySimpleGame extends SimpleGame<MySimplePlayer, MySimpleGameSetting
 
     private final MySimpleWaitingRoom waitingRoom;
 
-    public MySimpleGame(String name) {
-        super(name, new MySimpleGameSettings(GameSizeTemplate.SIZE_1V1.toGameSize()));
+    public MySimpleGame() {
+        super("MySimpleGame", new MySimpleGameSettings(GameSizeTemplate.SIZE_1V1.toGameSize()));
         this.waitingRoom = new MySimpleWaitingRoom(this);
     }
 
