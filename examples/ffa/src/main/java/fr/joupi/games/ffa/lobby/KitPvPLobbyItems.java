@@ -1,7 +1,6 @@
 package fr.joupi.games.ffa.lobby;
 
 import fr.joupi.games.engine.ffa.lobby.FFAGameLobbyItems;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
